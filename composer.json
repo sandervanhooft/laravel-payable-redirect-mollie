@@ -1,5 +1,5 @@
 {
-    "name": "SanderVanHooft/PayableRedirect",
+    "name": "sander-van-hooft/laravel-payable-redirect-mollie",
     "type": "library",
     "description": "Simple Laravel Mollie payment package.",
     "keywords": [
