@@ -4,19 +4,12 @@ All Notable changes to `LaravelPayableRedirectMollie` will be documented in this
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## NEXT - 2017-05-24
+## NEXT
 
-### Added
-- Nothing
+### Fixed
+- Code is now PSR-2 compliant
 
-### Deprecated
-- Nothing
+## 2017-05-24
 
 ### Fixed
 - Set the package variables (author name etc.) correctly.
-
-### Removed
-- Nothing
-
-### Security
-- Nothing

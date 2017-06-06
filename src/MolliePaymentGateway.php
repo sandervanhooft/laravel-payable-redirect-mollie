@@ -25,7 +25,7 @@ class MolliePaymentGateway implements PaymentGateway
      * @param  Illuminate\Database\Eloquent\Model
      * @return App\Payment
      */
-    public function chargeAmountForPayable(Int $amount, Model $payable, String $description, Array $params = []) : Payment
+    public function chargeAmountForPayable(Int $amount, Model $payable, String $description, array $params = []) : Payment
     {
         // create payment via gateway
         // dd([
@@ -76,7 +76,7 @@ class MolliePaymentGateway implements PaymentGateway
         $status = $this->response->getStatus();
         $update = ['status' => $this->response->getStatus()];
         
-        if( $status !== 'open' ) {
+        if ($status !== 'open') {
             $update['redirect_url'] = null;
         }
 
