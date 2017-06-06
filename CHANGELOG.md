@@ -4,10 +4,16 @@ All Notable changes to `LaravelPayableRedirectMollie` will be documented in this
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## NEXT
+## 2017-06-06
 
 ### Fixed
-- Code is now PSR-2 compliant
+- PSR-2 code compliancy
+
+### Added
+- graham-campbell/testbench test suite
+- docs folder (with Roadmap)
+- FakePaymentGatewayTest
+- MolliePaymentGatewayTest
 
 ## 2017-05-24
 
