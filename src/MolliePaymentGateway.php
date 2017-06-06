@@ -25,15 +25,12 @@ class MolliePaymentGateway implements PaymentGateway
      * @param  Illuminate\Database\Eloquent\Model
      * @return App\Payment
      */
-    public function chargeAmountForPayable(Int $amount, Model $payable, String $description, array $params = []) : Payment
-    {
-        // create payment via gateway
-        // dd([
-        //     $amount,
-        //     $payable,
-        //     $description,
-        //     $params,
-        // ]);
+    public function chargeAmountForPayable(
+        Int $amount,
+        Model $payable,
+        String $description,
+        array $params = []
+    ): Payment {
         $this->response = $this->gateway->purchase([
             "amount" => number_format($amount / 100, 2),
             "description" => $description,

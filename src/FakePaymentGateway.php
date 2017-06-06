@@ -12,8 +12,12 @@ class FakePaymentGateway implements PaymentGateway
      * @param  Illuminate\Database\Eloquent\Model
      * @return App\Payment
      */
-    public function chargeAmountForPayable(Int $amount, Model $payable, String $description, array $params = []) : Payment
-    {
+    public function chargeAmountForPayable(
+        Int $amount,
+        Model $payable,
+        String $description,
+        array $params = []
+    ) : Payment {
         $payment = $payable->payments()->create([
             'amount' => $amount,
             'status' => 'open',

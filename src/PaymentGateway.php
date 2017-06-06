@@ -12,7 +12,12 @@ interface PaymentGateway
      * @param  Illuminate\Database\Eloquent\Model
      * @return App\Payment
      */
-    public function chargeAmountForPayable(Int $amount, Model $payable, String $description, array $params = []) : Payment;
+    public function chargeAmountForPayable(
+        Int $amount,
+        Model $payable,
+        String $description,
+        array $params = []
+    ) : Payment;
 
     /**
      * @return String

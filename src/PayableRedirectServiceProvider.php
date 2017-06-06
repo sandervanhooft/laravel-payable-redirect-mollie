@@ -20,7 +20,8 @@ class PayableRedirectServiceProvider extends ServiceProvider
 
         // Publish migrations
          $this->publishes([
-             __DIR__.'/../database/migrations/2017_05_11_163005_create_payments_table.php' => database_path('migrations/2017_05_11_163005_create_payments_table.php'),
+             __DIR__.'/../database/migrations/2017_05_11_163005_create_payments_table.php'
+             => database_path('migrations/2017_05_11_163005_create_payments_table.php'),
          ], 'migrations');
 
          // Load routes
