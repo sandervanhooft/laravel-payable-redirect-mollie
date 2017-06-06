@@ -32,7 +32,7 @@ vendor/
 Via Composer
 
 ``` bash
-$ composer require SanderVanHooft/LaravelPayableRedirectMollie
+$ composer require sander-van-hooft/laravel-payable-redirect-mollie
 ```
 
 ## Usage
@@ -69,17 +69,17 @@ If you discover any security related issues, please email info@sandervanhooft.nl
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/SanderVanHooft/LaravelPayableRedirectMollie.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/sander-van-hooft/laravel-payable-redirect-mollie.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/SanderVanHooft/LaravelPayableRedirectMollie/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/SanderVanHooft/LaravelPayableRedirectMollie.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/SanderVanHooft/LaravelPayableRedirectMollie.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/SanderVanHooft/LaravelPayableRedirectMollie.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/sander-van-hooft/laravel-payable-redirect-mollie/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/sander-van-hooft/laravel-payable-redirect-mollie.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/sander-van-hooft/laravel-payable-redirect-mollie.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/sander-van-hooft/laravel-payable-redirect-mollie.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/SanderVanHooft/LaravelPayableRedirectMollie
-[link-travis]: https://travis-ci.org/SanderVanHooft/LaravelPayableRedirectMollie
-[link-scrutinizer]: https://scrutinizer-ci.com/g/SanderVanHooft/LaravelPayableRedirectMollie/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/SanderVanHooft/LaravelPayableRedirectMollie
-[link-downloads]: https://packagist.org/packages/SanderVanHooft/LaravelPayableRedirectMollie
+[link-packagist]: https://packagist.org/packages/sander-van-hooft/laravel-payable-redirect-mollie
+[link-travis]: https://travis-ci.org/sander-van-hooft/laravel-payable-redirect-mollie
+[link-scrutinizer]: https://scrutinizer-ci.com/g/sander-van-hooft/laravel-payable-redirect-mollie/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/sander-van-hooft/laravel-payable-redirect-mollie
+[link-downloads]: https://packagist.org/packages/sander-van-hooft/laravel-payable-redirect-mollie
 [link-author]: https://github.com/sandervanhooft
 [link-contributors]: ../../contributors
