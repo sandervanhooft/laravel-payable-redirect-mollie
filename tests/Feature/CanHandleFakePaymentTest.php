@@ -12,7 +12,7 @@ use SanderVanHooft\PayableRedirect\TestModel;
 
 class CanHandleFakePaymentTest extends AbstractTestCase
 {
-    function setUp()
+    protected function setUp()
     {
         parent::setUp();
         Event::fake();
@@ -22,7 +22,7 @@ class CanHandleFakePaymentTest extends AbstractTestCase
     }
 
     /** @test */
-    function can_create_payment_request()
+    public function canCreatePaymentRequest()
     {
         $order = new TestModel(['amount' => 12345]);
         $order->save();
@@ -47,12 +47,12 @@ class CanHandleFakePaymentTest extends AbstractTestCase
     }
 
     /** @test */
-    function can_fetch_payment_update()
+    public function canFetchPaymentUpdate()
     {
         $order = new TestModel(['amount' => 12345]);
         $order->save();
 
-        $payment = $order->payments()->save( new Payment ([
+        $payment = $order->payments()->save(new Payment([
             'amount' => 12345,
             'status' => 'open',
             'description' => 'Some fake description',

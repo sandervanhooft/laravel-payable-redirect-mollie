@@ -1,5 +1,7 @@
 <?php
 
+namespace SanderVanHooft\PayableRedirect\Feature\CanHandleMolliePaymentTest;
+
 use SanderVanHooft\PayableRedirect\AbstractTestCase;
 use SanderVanHooft\PayableRedirect\MolliePaymentGateway;
 use SanderVanHooft\PayableRedirect\Payment;
@@ -7,7 +9,7 @@ use SanderVanHooft\PayableRedirect\TestModel;
 
 class CanHandleMolliePaymentTest extends AbstractTestCase
 {
-    function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->paymentGateway = new MolliePaymentGateway;
@@ -31,7 +33,7 @@ class CanHandleMolliePaymentTest extends AbstractTestCase
      * @group integration
      * @group mollie
      */
-    function can_create_payment_request()
+    public function canCreatePaymentRequest()
     {
         $this->assertEquals(12345, $this->payment->amount);
         $this->assertEquals($this->paymentGateway->getGatewayName(), $this->payment->gateway_name);
@@ -45,7 +47,7 @@ class CanHandleMolliePaymentTest extends AbstractTestCase
      * @group integration
      * @group mollie
      */
-    function can_fetch_payment_update()
+    public function canFetchPaymentUpdate()
     {
         $this->payment = $this->paymentGateway->fetchUpdateFor($this->payment);
         $this->assertEquals('open', $this->payment->status);
@@ -57,7 +59,7 @@ class CanHandleMolliePaymentTest extends AbstractTestCase
      * @group integration
      * @group mollie
      */
-    function can_handle_webhook_call_for_existing_payment()
+    public function canHandleWebhookCallForExistingPayment()
     {
         $response = $this->json('POST', route('webhooks.payments.mollie'), [
             'id' => $this->payment->gateway_payment_reference,
@@ -70,7 +72,7 @@ class CanHandleMolliePaymentTest extends AbstractTestCase
      * @test
      * @group mollie
      */
-    function can_handle_webhook_call_for_nonexisting_payment()
+    public function canHandleWebhookCallForNonexistingPayment()
     {
         $response = $this->json('POST', route('webhooks.payments.mollie'), [
             'id' => 'non-existing',
