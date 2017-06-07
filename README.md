@@ -120,7 +120,7 @@ class Order extends Model
 ### Events
 PaymentEvents are dispatched for easy integration with your own custom listeners (see [Laravel events and listeners](https://laravel.com/docs/5.4/events)). The following events are available:
 
-- PaymentUpdated: this event is dispatched when Mollie calls the webhook. It checks whether the payment status really has changed. Depending on the new status, it dispatches one of the events below.
+- PaymentUpdated: this event is dispatched when Mollie calls the webhook. It checks whether the payment status really has changed. Depending on the new status, it dispatches one of the [Mollie based](https://www.mollie.com/nl/docs/status) events below.
 - PaymentCancelled
 - PaymentChargedBack
 - PaymentExpired

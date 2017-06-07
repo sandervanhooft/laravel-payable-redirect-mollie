@@ -7,6 +7,7 @@
 
 ### Added
 - IsPayableTrait
+- Travis config
 
 ## 2017-06-06
 
