@@ -18,7 +18,6 @@ class CanHandleFakePaymentTest extends AbstractTestCase
         Event::fake();
         $this->paymentGateway = new FakePaymentGateway;
         $this->app->instance(PaymentGateway::class, $this->paymentGateway);
-        $this->withPackageMigrations();
     }
 
     /** @test */

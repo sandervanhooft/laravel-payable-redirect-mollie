@@ -14,7 +14,6 @@ class CanHandleMolliePaymentTest extends AbstractTestCase
         parent::setUp();
         $this->paymentGateway = new MolliePaymentGateway;
         $this->app->instance(PaymentGateway::class, $this->paymentGateway);
-        $this->withPackageMigrations();
         $this->order = new TestModel(['amount' => 12345]);
         $this->order->save();
         $this->payment = $this->paymentGateway->chargeAmountForPayable(

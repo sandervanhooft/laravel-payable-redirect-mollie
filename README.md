@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Easily implement Mollie payments in your Laravel app. This package provides a Mollie webhook handler and an Eloquent Payment model. It is built on top of the Omnipay/Mollie package.
+Implementing Mollie payments in your app does not have to be difficult. This package helps you by creating payment records and keeping the status in sync with Mollie. It is built on top of the very solid Omnipay/Mollie package.
 
 ## Structure
 
@@ -41,7 +41,7 @@ Next, you must install the service provider:
 
 And add the Mollie API key to the `.env` file in your project root.
 This is also where you can override the webhook route which Mollie calls when a payment status is updated:
-```
+``` env
 # /.env:
 ...
 MOLLIE_KEY=YOUR_MOLLIE_API_KEY_HERE
@@ -88,7 +88,9 @@ In your code, create a Payment record using the MolliePaymentGateway:
 $order = new App\Order(['amount' => 12345]);
 $order->save();
 
-$payment = $this->paymentGateway->chargeAmountForPayable(
+$paymentGateway = new SanderVanHooft\PayableRedirect\MolliePaymentGateway;
+
+$payment = $paymentGateway->chargeAmountForPayable(
     $order->amount,
     $order,
     'Some description',
@@ -96,11 +98,15 @@ $payment = $this->paymentGateway->chargeAmountForPayable(
 );
 ```
 
+The payment status will be kept in sync with Mollie: Mollie will call the webhook whenever the status changes. This will trigger your app to fetch the latest payment status from Mollie.
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Testing
+
+Please mind that for testing the payment status synchronisation your app needs to be reachable on a public url by Mollie. Therefore, under normal circumstances, you cannot fully test this functionality on a local Laravel installation.
 
 ``` bash
 $ composer test
