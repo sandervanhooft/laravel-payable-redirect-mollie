@@ -2,9 +2,7 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[//]: # ([![Coverage Status][ico-scrutinizer]][link-scrutinizer])
-[//]: # ([![Quality Score][ico-code-quality]][link-code-quality])
+[![Build Status](https://travis-ci.org/sandervanhooft/laravel-payable-redirect-mollie.svg?branch=master)](https://travis-ci.org/sandervanhooft/laravel-payable-redirect-mollie)
 [![Total Downloads][ico-downloads]][link-downloads]
 
 Implementing Mollie payments in your Laravel app does not have to be difficult. This package helps you by creating payment records and keeping the status in sync with Mollie. It is built on top of the very solid [Omnipay/Mollie package](http://omnipay.thephpleague.com). It supports one-off payments only; recurring payments are not supported.
@@ -170,9 +168,6 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-downloads]: https://img.shields.io/packagist/dt/sander-van-hooft/laravel-payable-redirect-mollie.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/sander-van-hooft/laravel-payable-redirect-mollie
-[link-travis]: https://travis-ci.org/sandervanhooft/laravel-payable-redirect-mollie
-[link-scrutinizer]: https://scrutinizer-ci.com/g/sander-van-hooft/laravel-payable-redirect-mollie/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/sander-van-hooft/laravel-payable-redirect-mollie
 [link-downloads]: https://packagist.org/packages/sander-van-hooft/laravel-payable-redirect-mollie
 [link-author]: https://github.com/sandervanhooft
 [link-contributors]: ../../contributors
