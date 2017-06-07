@@ -10,6 +10,9 @@
     - IsPayableTrait
     - eurocents
     - mollie api key for testing
+    - nice title
+    - removed scrutinizer links
+    - updated travis link
 
 ### Added
 - IsPayableTrait

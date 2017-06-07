@@ -1,12 +1,16 @@
 {
     "name": "sander-van-hooft/laravel-payable-redirect-mollie",
     "type": "library",
-    "description": "Simple Laravel Mollie payment package.",
+    "description": "Associate Mollie payments with Laravel Eloquent models",
     "keywords": [
-        "SanderVanHooft",
-        "PayableRedirect"
+        "eloquent",
+        "laravel",
+        "mollie",
+        "payable",
+        "redirect",
+        "sandervanhooft"
     ],
-    "license": "Private",
+    "license": "MIT",
     "authors": [
         {
             "name": "Sander van Hooft",
