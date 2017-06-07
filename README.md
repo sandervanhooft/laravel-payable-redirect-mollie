@@ -139,6 +139,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 Please mind that for testing the payment status synchronisation your app needs to be reachable on a public url by Mollie. Therefore, under normal circumstances, you cannot fully test this functionality on a local Laravel installation.
 
+Make sure to configure the Mollie API key (`MOLLIE_KEY`) as an environment variable. This can for example be done in the `phpunit.xml` file.
+
 ``` bash
 $ composer test
 ```

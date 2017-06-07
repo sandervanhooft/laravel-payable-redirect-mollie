@@ -3,7 +3,13 @@
 ## 2017-06-07
 
 ### Fixed
-- Improved Readme file (installation, usage, events, IsPayableTrait, eurocents)
+- Improved Readme file:
+    - installation
+    - usage
+    - events
+    - IsPayableTrait
+    - eurocents
+    - mollie api key for testing
 
 ### Added
 - IsPayableTrait
