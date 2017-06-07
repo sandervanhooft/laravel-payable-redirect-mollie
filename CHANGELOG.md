@@ -1,8 +1,12 @@
 # Changelog
 
-All Notable changes to `LaravelPayableRedirectMollie` will be documented in this file.
+## 2017-06-07
 
-Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
+### Fixed
+- Improved Readme file (installation, usage, events, IsPayableTrait, eurocents)
+
+### Added
+- IsPayableTrait
 
 ## 2017-06-06
 

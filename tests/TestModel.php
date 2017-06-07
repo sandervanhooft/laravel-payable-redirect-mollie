@@ -4,13 +4,11 @@ namespace SanderVanHooft\PayableRedirect;
 
 use Illuminate\Database\Eloquent\Model;
 use SanderVanHooft\PayableRedirect\Payment;
+use SanderVanHooft\PayableRedirect\IsPayable\IsPayableTrait;
 
 class TestModel extends Model
 {
-    protected $guarded = [];
+    use IsPayableTrait;
 
-    public function payments()
-    {
-        return $this->morphMany(Payment::class, 'payable');
-    }
+    protected $guarded = [];
 }

@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Implementing Mollie payments in your app does not have to be difficult. This package helps you by creating payment records and keeping the status in sync with Mollie. It is built on top of the very solid Omnipay/Mollie package.
+Implementing Mollie payments in your Laravel app does not have to be difficult. This package helps you by creating payment records and keeping the status in sync with Mollie. It is built on top of the very solid Omnipay/Mollie package. It supports one-off payments only; recurring payments are not supported.
 
 ## Structure
 
@@ -19,7 +19,6 @@ routes/
 src/
 tests/
 ```
-
 
 ## Install
 
@@ -81,7 +80,9 @@ return [
 
 ## Usage
 
+### Basic usage
 In your code, create a Payment record using the MolliePaymentGateway:
+
 ``` php
 // Using some App\Order model (provided by you)
 
@@ -91,14 +92,44 @@ $order->save();
 $paymentGateway = new SanderVanHooft\PayableRedirect\MolliePaymentGateway;
 
 $payment = $paymentGateway->chargeAmountForPayable(
-    $order->amount,
+    $order->amount, // AMOUNT IN CENTS!!
     $order,
     'Some description',
     [ 'return_url' => 'http://some-return-url.com' ]
 );
 ```
 
-The payment status will be kept in sync with Mollie: Mollie will call the webhook whenever the status changes. This will trigger your app to fetch the latest payment status from Mollie.
+__The payment amount is in eurocents!__
+
+The payment status will be kept in sync with Mollie: Mollie will call the webhook whenever the payment status changes. This will trigger your app to fetch the latest payment status from Mollie. Mollie has designed this process in this way for security reasons.
+
+### IsPayableTrait
+For convenience you can use the `isPayableTrait` on your payable Eloquent model (the `App\Order` model in the example above). This enables you to call `$order->payments`.
+
+``` php
+use Illuminate\Database\Eloquent\Model;
+use SanderVanHooft\PayableRedirect\Payment;
+use SanderVanHooft\PayableRedirect\IsPayable\IsPayableTrait;
+
+class Order extends Model
+{
+    use IsPayableTrait;
+}
+```
+
+### Events
+PaymentEvents are dispatched for easy integration with your own custom listeners (see [Laravel events and listeners](https://laravel.com/docs/5.4/events)). The following events are available:
+
+- PaymentUpdated: this event is dispatched when Mollie calls the webhook. It checks whether the payment status really has changed. Depending on the new status, it dispatches one of the events below.
+- PaymentCancelled
+- PaymentChargedBack
+- PaymentExpired
+- PaymentFailed
+- PaymentOpened
+- PaymentPaid
+- PaymentPaidOut
+- PaymentPending
+- PaymentRefunded
 
 ## Change log
 
