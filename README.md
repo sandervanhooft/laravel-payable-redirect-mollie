@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/sandervanhooft/laravel-payable-redirect-mollie.svg?branch=master)](https://travis-ci.org/sandervanhooft/laravel-payable-redirect-mollie)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Implementing Mollie payments in your Laravel app does not have to be difficult. This package helps you by creating payment records and keeping the status in sync with Mollie. It is built on top of the very solid [Omnipay/Mollie package](http://omnipay.thephpleague.com). It supports one-off payments only; recurring payments are not supported.
+Implementing Mollie payments in your Laravel 5.4 app does not have to be difficult. This package helps you by creating payment records and keeping the status in sync with Mollie. It is built on top of the very solid [Omnipay/Mollie package](http://omnipay.thephpleague.com). It supports one-off payments only; recurring payments are not supported.
 
 ## Structure
 

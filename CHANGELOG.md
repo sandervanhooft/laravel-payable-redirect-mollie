@@ -1,5 +1,16 @@
 # Changelog
 
+## 2017-06-17
+
+### Fixed
+- FakePaymentGateway only dispatches PaymentUpdated event if the payment record has actually been changed.
+
+### Added
+- Tests for PaymentUpdated event behaviour.
+
+### Removed
+- Docs folder (including roadmap.md)
+
 ## 2017-06-07
 
 ### Fixed

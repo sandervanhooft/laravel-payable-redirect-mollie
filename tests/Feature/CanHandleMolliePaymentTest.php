@@ -2,7 +2,10 @@
 
 namespace SanderVanHooft\PayableRedirect\Feature\CanHandleMolliePaymentTest;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Event;
 use SanderVanHooft\PayableRedirect\AbstractTestCase;
+use SanderVanHooft\PayableRedirect\Events\PaymentUpdated;
 use SanderVanHooft\PayableRedirect\MolliePaymentGateway;
 use SanderVanHooft\PayableRedirect\Payment;
 use SanderVanHooft\PayableRedirect\TestModel;
@@ -51,6 +54,43 @@ class CanHandleMolliePaymentTest extends AbstractTestCase
         $this->payment = $this->paymentGateway->fetchUpdateFor($this->payment);
         $this->assertEquals('open', $this->payment->status);
         $this->assertNotNull($this->payment->redirect_url);
+    }
+
+    /**
+     * @test
+     * @group integration
+     * @group mollie
+     */
+    public function dispatchesPaymentUpdatedEventIfChanged()
+    {
+        Event::fake();
+        $payment = $this->payment;
+        DB::table('payments')->where('id', $payment->id)->update(['status' => 'test']);
+        $payment = $payment->fresh();
+        Event::assertNotDispatched(PaymentUpdated::class, function ($e) use ($payment) {
+            return $e->payment->id === $payment->id;
+        });
+        
+        $payment = $this->paymentGateway->fetchUpdateFor($payment);
+
+        Event::assertDispatched(PaymentUpdated::class, function ($e) use ($payment) {
+            return $e->payment->id === $payment->id;
+        });
+    }
+
+    /**
+     * @test
+     * @group integration
+     * @group mollie
+     */
+    public function doesNotdispatchPaymentUpdatedEventIfNotChanged()
+    {
+        Event::fake();
+        $payment = $this->payment;
+        $payment = $this->paymentGateway->fetchUpdateFor($payment);
+        Event::assertNotDispatched(PaymentUpdated::class, function ($e) use ($payment) {
+            return $e->payment->id === $payment->id;
+        });
     }
 
     /**

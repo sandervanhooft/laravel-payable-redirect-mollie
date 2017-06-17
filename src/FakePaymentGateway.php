@@ -45,10 +45,10 @@ class FakePaymentGateway implements PaymentGateway
      */
     public function fetchUpdateFor(Payment $payment) : Payment
     {
-        $payment->update([
-            'status' => 'paid',
-            'redirect_url' => null,
-        ]);
+        $x = $payment->status;
+        $payment->status = 'paid';
+        $payment->redirect_url = null;
+        $payment->save();
         return $payment;
     }
 }
