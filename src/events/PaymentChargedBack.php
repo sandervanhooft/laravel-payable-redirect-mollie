@@ -1,6 +1,6 @@
 <?php
 
-namespace SanderVanHooft\PayableRedirect\Events
+namespace SanderVanHooft\PayableRedirect\Events;
 
 use SanderVanHooft\PayableRedirect\Events\PaymentEvent;
 
