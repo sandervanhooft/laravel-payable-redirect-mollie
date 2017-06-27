@@ -1,5 +1,17 @@
 # Changelog
 
+## 2017-06-27
+
+### Fixed
+- major issue fixed (missing semicolon) in PaymentChargedBack event.
+- minor fixes suggested by Scrutinizer
+
+### Added
+- Nothing
+
+### Removed
+- lower case folders src/events and src/listeners.
+
 ## 2017-06-17
 
 ### Fixed
