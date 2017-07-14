@@ -1,5 +1,19 @@
 # Changelog
 
+## 2017-07-14
+This change substitutes the omnipay/mollie package for the official mollie/molli-api-php client.
+
+### Fixed
+- PSR-2: CreateTestModelsTable.php namespace
+- PSR-2: IsPayableTrait is now in camel caps
+- other automated PSR-2 fixes
+
+### Added
+- mollie/mollie-api-php package
+
+### Removed
+- omnipay/mollie package
+
 ## 2017-06-27
 
 ### Fixed

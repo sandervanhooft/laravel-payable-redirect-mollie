@@ -4,7 +4,7 @@ namespace SanderVanHooft\PayableRedirect\IsPayable;
 
 use SanderVanHooft\PayableRedirect\Payment;
 
-trait isPayableTrait
+trait IsPayableTrait
 {
     /**
      * Set the polymorphic relation.
