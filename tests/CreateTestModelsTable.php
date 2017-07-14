@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+namespace SanderVanHooft\PayableRedirect;
+
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTestModelsTable extends Migration
 {

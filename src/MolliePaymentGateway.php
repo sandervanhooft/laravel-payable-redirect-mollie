@@ -2,9 +2,8 @@
 
 namespace SanderVanHooft\PayableRedirect;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Omnipay\Omnipay;
+use Mollie_API_Client;
 use SanderVanHooft\PayableRedirect\PaymentGateway;
 use SanderVanHooft\PayableRedirect\Payment;
 
@@ -16,7 +15,7 @@ class MolliePaymentGateway implements PaymentGateway
     public function __construct()
     {
         $this->response = false;
-        $this->gateway = Omnipay::create('Mollie');
+        $this->gateway = new Mollie_API_Client;
         $this->gateway->setApiKey(config('payable.mollie.key'));
     }
 
@@ -31,22 +30,23 @@ class MolliePaymentGateway implements PaymentGateway
         String $description,
         array $params = []
     ): Payment {
-        $this->response = $this->gateway->purchase([
+
+        $this->response = $this->gateway->payments->create(array(
             "amount" => number_format($amount / 100, 2),
             "description" => $description,
-            "return_url" => $params['return_url'],
-            "notifyUrl" => $params['webhook_url'],
-        ])->send();
+            "redirectUrl" => $params['return_url'],
+            "webhookUrl"  => $params['webhook_url'],
+        ));
 
         // create payment record for payable model
         $payment = $payable->payments()->create([
             'amount' => $amount,
-            'status' => $this->response->getStatus(),
+            'status' => $this->response->status,
             'description' => $description,
-            'redirect_url' => $this->response->getRedirectUrl(),
-            'return_url' => $params['return_url'],
+            'redirect_url' => $this->response->links->paymentUrl,
+            'return_url' => $this->response->links->redirectUrl,
             'gateway_name' => $this->getGatewayName(),
-            'gateway_payment_reference' => $this->response->getTransactionReference(),
+            'gateway_payment_reference' => $this->response->id,
         ]);
         
         return $payment;
@@ -66,13 +66,11 @@ class MolliePaymentGateway implements PaymentGateway
      */
     public function fetchUpdateFor(Payment $payment) : Payment
     {
-        $this->response = $this->gateway->completePurchase([
-            'transactionReference'   => $payment->gateway_payment_reference,
-        ])->send();
-
-        $status = $this->response->getStatus();
-        $update = ['status' => $this->response->getStatus()];
+        $this->response = $this->gateway->payments->get($payment->gateway_payment_reference);
         
+        $status = $this->response->status;
+        $update = ['status' => $status];
+
         if ($status !== 'open') {
             $update['redirect_url'] = null;
         }

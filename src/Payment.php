@@ -7,10 +7,9 @@ use SanderVanHooft\PayableRedirect\PaymentGateway;
 use SanderVanHooft\PayableRedirect\Events\PaymentOpened;
 use SanderVanHooft\PayableRedirect\Events\PaymentUpdated;
 
-
 /**
-  * @property string $status
-  */
+ * @property string $status
+ */
 class Payment extends Model
 {
     protected $guarded = [];

@@ -19,13 +19,13 @@ class PayableRedirectServiceProvider extends ServiceProvider
         ], 'config');
 
         // Publish migrations
-         $this->publishes([
-             __DIR__.'/../database/migrations/2017_05_11_163005_create_payments_table.php'
-             => database_path('migrations/2017_05_11_163005_create_payments_table.php'),
-         ], 'migrations');
+            $this->publishes([
+                __DIR__.'/../database/migrations/2017_05_11_163005_create_payments_table.php'
+                => database_path('migrations/2017_05_11_163005_create_payments_table.php'),
+            ], 'migrations');
 
-         // Load routes
-         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+            // Load routes
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 
     /**
