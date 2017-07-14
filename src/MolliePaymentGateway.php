@@ -2,10 +2,8 @@
 
 namespace SanderVanHooft\PayableRedirect;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Mollie_API_Client;
-use Omnipay\Omnipay;
 use SanderVanHooft\PayableRedirect\PaymentGateway;
 use SanderVanHooft\PayableRedirect\Payment;
 
