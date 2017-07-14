@@ -42,7 +42,7 @@ class AbstractTestCase extends AbstractPackageTestCase
     protected function withPackageMigrations()
     {
         include_once __DIR__.'/CreateTestModelsTable.php';
-        (new \CreateTestModelsTable())->up();
+        (new \SanderVanHooft\PayableRedirect\CreateTestModelsTable())->up();
         include_once __DIR__.'/../database/migrations/2017_05_11_163005_create_payments_table.php';
         (new \CreatePaymentsTable())->up();
     }
