@@ -10,7 +10,7 @@ class FakePaymentGateway implements PaymentGateway
     /**
      * @param  Int
      * @param  Illuminate\Database\Eloquent\Model
-     * @return App\Payment
+     * @return Payment
      */
     public function chargeAmountForPayable(
         Int $amount,
