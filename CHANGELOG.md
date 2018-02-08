@@ -1,5 +1,7 @@
 # Changelog
 
+## 2018-02-08 1.04 Release
+
 ### Fixed
 - major issue fixed (missing semicolon) in PaymentChargedBack event.
 - major issue fixed (missing use statement for PaymentFailed) in DispatchPaymentStatusChangeEvent.
