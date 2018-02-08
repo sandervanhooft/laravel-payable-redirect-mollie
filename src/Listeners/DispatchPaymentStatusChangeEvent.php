@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use SanderVanHooft\PayableRedirect\Events\PaymentCancelled;
 use SanderVanHooft\PayableRedirect\Events\PaymentChargedBack;
 use SanderVanHooft\PayableRedirect\Events\PaymentExpired;
+use SanderVanHooft\PayableRedirect\Events\PaymentFailed;
 use SanderVanHooft\PayableRedirect\Events\PaymentOpened;
 use SanderVanHooft\PayableRedirect\Events\PaymentPaid;
 use SanderVanHooft\PayableRedirect\Events\PaymentPaidOut;

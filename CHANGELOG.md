@@ -1,5 +1,12 @@
 # Changelog
 
+### Fixed
+- major issue fixed (missing semicolon) in PaymentChargedBack event.
+- major issue fixed (missing use statement for PaymentFailed) in DispatchPaymentStatusChangeEvent.
+
+### Added
+- tests for DispatchPaymentStatusChangeEvent
+
 ## 2017-07-14
 This change substitutes the omnipay/mollie package for the official mollie/molli-api-php client.
 
